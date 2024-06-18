@@ -11,7 +11,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const corsOptions: CorsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://main--clepher-dashboard.netlify.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   };
   app.enableCors(corsOptions);
