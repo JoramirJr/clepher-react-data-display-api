@@ -8,7 +8,7 @@ export class TimeSeriesIntradayService {
   constructor(private readonly httpService: HttpService) { }
 
   async fetch_intraday(page?: number): Promise<any> {
-    const response = await lastValueFrom(this.httpService.get('https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_WEEKLY&symbol=BTC&market=EUR&apikey=RIBXT3XYLI69PC0Q'));
+    const response = await lastValueFrom(this.httpService.get(`https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_WEEKLY&symbol=BTC&market=EUR&apikey=${process.env.API_KEY}`));
     const items = response.data['Time Series (Digital Currency Weekly)'];
     const pgStart = (page - 1) * 10;
     const pgFinish = pgStart + 10;
